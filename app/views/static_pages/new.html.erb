@@ -1,0 +1,38 @@
+
+
+<div class="post-container">
+   <h5 class="post-title">Post</h5>
+   <%=form_tag({:action=> 'create'}, :multipart => true) do %>
+      <div class="input-group mb-3" style="margin-bottom: 25px;">
+         <div class="input-group-addon"> <span class="input-group-text">Topic</span> </div>
+         <select class="form-control" name="post[forum_id]" id="forum_id">
+            <% @forums.each do |f| %>
+               <option <option value=<%=f.id %>>
+                  <%=f.name %>
+               </option>
+               <% end %>
+         </select>
+      </div>
+      <div class="input-group mb-3" style="margin-bottom: 25px;">
+         <div class="input-group-addon"> <span class="input-group-text">Title</span> </div>
+         <%=text_field 'post', 'title', class: 'form-control',placeholder: "Enter post title here",required: true, minlength: 5, maxlength: 30 %>
+            </p>
+      </div>
+      <div class="input-group mb-3" style="margin-bottom: 25px;">
+         <div class="input-group-addon"> <span class="input-group-text">Photo</span> </div>
+         <input class="form-control" type="file" name="post[photo]" id="photo"> </div>
+      <div class="input-group mb-3" style="margin-bottom: 25px;">
+         <div class="">
+            <%=text_area 'post', 'content',placeholder: "Enter post content here", cols: 200, rows: 9,required: true,minlength: 30 %>
+               </p>
+         </div>
+      </div>
+      <div class="row">
+         <div class="form-group">
+            <div class="col-sm-2" style="display: flex;">
+               <%=submit_tag "Create", class: 'btn btn-success', style: 'margin-right:10px' %>
+                  <%=link_to "Cancel", root_path, class: 'btn btn-light' %>
+            </div>
+         </div>
+         <% end %>
+      </div>

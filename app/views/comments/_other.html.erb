@@ -1,0 +1,33 @@
+<% if @other.blank? %>
+  <h4 class="card-title">Other Comment</h4>
+  <div class="well" style="margin-bottom:5px;">
+    <div class="media">
+      <div class="media-body">
+        <div class="col-sm-8">
+          <h3 style="margin-left: 190px;">No body reaction for you</h>
+    </div>
+  </div>
+</div>
+</div>
+<%else %>
+<% @other.each do |c| %>
+  <h4 class="card-title">Other Comment</h4>
+  <div class="well" style="margin-bottom:5px;">
+    <div class="media">
+      
+      <div class="media-body">
+        <div class="col-sm-8">
+        <h4 class="media-heading long-title"><a href=/static_pages/<%= c.post.id%> class="custom-highlight" >GO TO:</a><%= c.content %></h4>
+
+        
+        </div>
+        <div class="col-sm-2" style="float:right">
+            <i class="glyphicon glyphicon-calendar"></i>
+            <%= c.created_at %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+<% end %>

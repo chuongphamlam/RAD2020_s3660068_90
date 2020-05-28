@@ -1,0 +1,9 @@
+<div class="col-sm-12">
+   <% if store_location.include?( "other") %>
+      <%=render 'comments/other' %>
+         <% elsif store_location.include?( "post") %>
+            <%=render 'comments/post' %>
+               <% else %>
+                  <%=render 'comments/comment' %>
+                     <% end %>
+</div>

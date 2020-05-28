@@ -1,0 +1,44 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <%=link_to"NEWS+", root_path, id:"logo"%>
+        <nav>
+            <ul class="nav navbar-nav navbar-right">
+                 <li style="float: left"><%=link_to logged_in? ? "Wellcome #{current_user.name} !" : "" , '#' %></li>
+                 <li><%=link_to"|", '#' %></li>
+                <li id="hover"><%=link_to"Home",    root_path %></li>
+
+
+                <li class="dropdown"> 
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        New <b class="caret"></b>
+                        </a> 
+                        <ul class="dropdown-menu">
+                           <% @forum_new.each do |fn| %>
+
+                            <li><%= link_to "#{fn.name}", '' %></li>
+                            <%end%>
+                        </ul>
+                    </li>
+
+
+                <% if logged_in? %>
+                    <li class="dropdown"> 
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Account <b class="caret"></b>
+                        </a> 
+                        <ul class="dropdown-menu">
+                            <li><%= link_to "Profile", current_user %></li>
+                            <li><%= link_to "settings", '/settings' %></li>
+                            <li class = "divider"></li>
+                            <li>
+                                <%= link_to "Log out", logout_path, method: :delete %>
+                            </li>
+                        </ul>
+                    </li>
+                <% else %>
+                    <li><%= link_to "Log in", login_path %></li>
+                <% end %>
+            </ul>
+        </nav>
+    </div>
+</header>

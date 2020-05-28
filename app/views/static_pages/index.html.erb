@@ -1,0 +1,146 @@
+<div class="col-sm-8" style="margin-top: 25px;">
+   <div class="row">
+      <div class="col-sm-12">
+         <ul class="list-group list-group-horizontal-sm">
+            <li class="list-group-item active" id="RecentPost"><a  href="/">Recent Post</a> </li>
+
+            <li class="list-group-item" id="SelectedPost">            <%= link_to 'Selected ', "", :onclick => "$('#select_post').submit()" %>
+ </li>
+
+            <% if logged_in? %>
+               <li class="list-group-item" id="MySetting"><a href="settings">My Setting</a> </li>
+               <% else %>
+                  <% nil %>
+                     <% end %>
+                        <li class="list-group-button">
+                           <%=link_to 'New Post', {:action=> 'new'}, class: "btn btn-success" %></li>
+                        <form class="form-inline d-flex justify-content-center md-form form-sm mt-0" action="" accept-charset="UTF-8" method="get">
+                           <input name="utf8" type="hidden" value="✓" />
+                           <li class="list-group-input">
+                              <input type="search" name="search" id="search" class="form-control" placeholder="Search" /> </li>
+                        </form>
+         </ul>
+      </div>
+   </div>
+
+
+
+   <% @posts.each do |p| %>
+      <div class="courses-container" style="padding-bottom: 20px;">
+         <div class="course">
+            <div class="course-preview">
+               <% if p.photo.file.nil? %>
+                  <a><img src="/uploads/defaults/thumb-default.jpg" /> </a>
+                  <% else %>
+                     <a> <img src=<%=p.photo %> /> </a>
+                     <% end %> <i class="glyphicon glyphicon-user"></i> <a class="custom-highlight" href=/users/<%=p .user_id %>><i class="fas fa-chevron-right"></i><%= p.user.name %></a> </p>
+            </div>
+              
+            <div class="course-info">
+               <div class="progress-container"> </div>
+               <h2 style="letter-spacing: 1px;text-align: left; font-size: 30px; "><%= p.title %></h2>
+               <h6 style="overflow: hidden;white-space: nowrap; text-overflow: ellipsis; max-width: 512px;"><%= p.content %></h6>
+               <div class="col-sm-11" style="padding-top: 25px;margin-left: -15px;">
+                  <ul class="list-inline list-unstyled">
+                     <li> <i class="glyphicon glyphicon-calendar"></i>
+                        <%=p.created_at %>
+                     </li> |
+                     <li> <i class="glyphicon glyphicon-fire"></i>
+                        <%=p.forum.name %>
+                     </li> |
+                     <li> <i class="glyphicon glyphicon-eye-open"></i>
+                        <%=p.counter %>
+                     </li>
+                  </ul>
+               </div> <a href=static_pages/<%=p .id %> class="btn-card">Read More</a> </div>
+         </div>
+      </div>
+      <% end %>
+
+
+
+
+</div>
+<div class="col-sm-4" style="margin-bottom: 50px;">
+   <div class="col col-lg-2">
+      <br />
+      <div class="container side-bar">
+         <div class="card">
+            <div class="card-body">
+               <h4 class="card-title">Recent Members</h4>
+               <p style="padding: 5px 15px 5px;"> <strong> </strong> </p>
+               <% @users.each do |us| %>
+                  <div class="col-sm-4"> <strong>
+
+              <% if us.photo.file.nil? %>
+              <img width="100%" height="102.667px" src="/uploads/defaults/no-image.jpg" />
+              <% else %>
+              <a href=users/<%= us.id %> ><img  width="100%" height="102.667px" src=<%= us.photo %>  </a>
+              <% end %>
+
+             
+                <h1 style="font-size: 14px; margin: 5px 0 10px;">
+                  <a href=users/<%= us.id %>><%= us.name %></a>
+                </h1>
+
+
+              </strong> </div>
+                  <% end %>
+                     <p></p>
+            </div>
+         </div>
+      </div>
+      <br />
+      <br />
+      <div class="container side-bar">
+         <div class="card">
+            <div class="card-body">
+               <h4 class="card-title">Topic</h4>
+               <p style="padding: 5px 15px 5px;">
+                      <form  id="select_post" method="get">
+                  <% @forums.each do |fms| %>
+                     <a onclick="select_tag(this,this.id)" id= <%=fms.id %> class="badge" data-remote="true" >
+                        <%=fms.name %>
+                     </a>
+                     <% end %>
+                     <input type="hidden" name="select" id="myText" value="all">
+                     </form>
+
+
+            </div>
+         </div>
+      </div>
+      <br />
+      <br />
+      <div class="container side-bar">
+         <div class="card">
+            <div class="card-body">
+               <h4 class="card-title">Post</h4>
+               <% @posts_sort_date.each do |psd| %>
+                  <h4 class="media-heading side-heading"><a class="custom-highlight" href=static_pages/<%= psd.id %> ><%= psd.title %></a></h4>
+                  <% end %>
+            </div>
+         </div>
+      </div>
+      <br />
+      <br />
+      <div class="container side-bar">
+         <div class="card">
+            <div class="card-body">
+               <h4 class="card-title">Links</h4>
+               <p style="padding: 5px 15px 5px;"> <a href="https://www.rmit.edu.au/" class="badge">RMIT</a> <a href="https://rubyonrails.org/" class="badge">Rails</a> <a href="https://rmit.instructure.com/" class="badge">Canvas</a> <a href="https://github.com/chuongphamlam/RAD2020_s3660068_90" class="badge">git</a> </p>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<footer class="footer footer-dark">
+</footer>
+
+
+            <%
+=begin%>
+ <form action="select" method='get'> 
+<%
+=end%>
+

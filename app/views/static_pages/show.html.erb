@@ -1,0 +1,84 @@
+<div class="container bootstrap snippet">
+  <div class="span 12" , style="">
+    <div class="panel panel-white post panel-shadow">
+      <div class="post-heading">
+        <div class="pull-left image"> 
+            <% if @post.photo.file.nil? %>
+                  <a><img class="img-circle avatar" src="/uploads/defaults/no-image.jpg" /> </a>
+                  <% else %>
+                     <a> <img class="img-circle avatar"  src=<%=@post.photo %> /> </a>
+                     <% end %>
+        </div>
+        <div class="pull-left meta">
+          <div class="title h5"> <a href=/users/<%= @post.user.id %>><b> <%= @post.user.name %> | <%= @post.user.email %>    </b></a> </div>
+          <h6 class="text-muted time"><%= @post.created_at%></h6> </div>
+      </div>
+      <div class="post-description">
+        <div class="row" style="padding: 0px 50px">
+          <div class="col-sm-8">
+            <h1><%=@post.title %> </h1>
+            <h4><%=@post.content %> </h4> </div>
+          <div class="col-sm-4">
+            <% if @post.photo.file.nil? %> <img src="/uploads/defaults/thumb-default.jpg" />
+              <% else %> <img src=<%=@post.photo %> /></div>
+          <% end %>
+        </div>
+        <div class="stats">
+          <a  class="btn btn-default stat-item"> <i class="glyphicon glyphicon-eye-open"></i>
+            <%=@post.counter %>
+          </a>
+          <a  class="btn btn-default stat-item"> <i class="glyphicon glyphicon-comment"></i>
+            <%=@comments.count %>
+          </a>
+          <%if logged_in? %>
+            <% if @post.user.id == current_user.id %>
+              <%= link_to 'Delete', "#{@post.id}",
+                method: :delete,
+                data: { confirm: 'Are you sure?' } ,
+                class: "btn btn-default stat-item"
+                %>
+
+                 <%= link_to 'Edit', "#{@post.id}/edit",
+                method: :get,
+                class: "btn btn-default stat-item"
+                %>
+
+              <%else%>
+                <%end%>
+                  <%else%>
+                    <%end%>
+
+                    
+        </div>
+      </div>
+      <div class="post-footer">
+        <%=form_tag( '/comments') do %>
+          <div class="input-group">
+            <input class="form-control" name="comment[content]" placeholder="Add a comment" type="text" required /> <span class="input-group-addon">
+          <input type="hidden" name="comment[post_id]" value="<%=@post.id %>>
+          <button type="submit"><i class="glyphicon glyphicon-send"></i></button>
+        </span> </div>
+          <% end %>
+            <% @comments.each do |c| %>
+              <ul class="comments-list">
+                <li class="comment">
+                  <a class="pull-left" href="#"> 
+                    <% if c.user.photo.file.nil? %>
+                  <a><img class="avatar" src="/uploads/defaults/no-image.jpg" /> </a>
+                  <% else %>
+                  <img class="avatar" src=<%=c.user.photo %>  /> </a>
+                     <% end %>
+                  <div class="comment-body">
+                    <div class="comment-heading">
+                      <h4 class="user"><a href=/users/<%= c.user.id %>><%= c.user.name %></a></h4> </div>
+                    <p>
+                      <%=c.content %>
+                    </p>
+                  </div>
+                </li>
+              </ul>
+              <% end %>
+      </div>
+    </div>
+  </div>
+</div>

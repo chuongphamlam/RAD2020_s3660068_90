@@ -1,0 +1,44 @@
+<div id="setting-list">
+
+<div style="display:none;margin-top: 15px;"  id="message" class="alert alert-danger"></div>
+
+   <form class="edit_user" id="edit_user_8" action=/users/<%=current_user.id%> accept-charset="UTF-8" method="post">
+      <input name="utf8" type="hidden" value="✓">
+      <input type="hidden" name="_method" value="patch">
+      <div class="input-group mb-3" style="margin-bottom: 25px;margin-top: 25px;">
+         <div class="input-group-addon"> <span class="input-group-text">New password</span> </div>
+         <input class="form-control"
+         placeholder="Enter new password" id="txtPassword" required="required"  minlength="8"  type="password" name="user[password]"
+         id="user_password"> </div>
+      <div class="input-group mb-3" style="margin-bottom: 25px;">
+         <div class="input-group-addon"> <span class="input-group-text">Confirm password</span> </div>
+         <input class="form-control"
+         placeholder="Confirm your password" required="required"  minlength="8" type="password"
+         name="user[password_confirmation]" id="txtConfirmPassword"> </div>
+      <div class="row">
+         <div class="form-group">
+            <div class="col-sm-2">
+               <input onclick="return Validate()" type="submit" name="commit" value="Confirm" class="btn btn-success"
+               data-disable-with="Confirm"> </div>
+         </div>
+      </div>
+   </form>
+</div>
+
+
+<script type="text/javascript">
+    function Validate() {
+      
+        var password = document.getElementById("txtPassword").value;
+        var confirmPassword = document.getElementById("txtConfirmPassword").value;
+
+        if (password != confirmPassword) {
+           
+           document.getElementById('message').style.display= 'block' ;
+
+           $('#message').text("Passwords do not match")
+            return false;
+        }
+        return true;
+    }
+</script>

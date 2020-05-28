@@ -1,0 +1,50 @@
+
+ 
+
+<% provide(:title, 'Sign up') %>
+
+<h1>Sign Up</h1>
+
+<%= form_for(@user) do |f| %>
+    <%= render 'shared/error_messages' %>
+
+<div class="cont" style="width: 634px;">
+
+  <div class="form sign-in" >
+
+    <label style="margin-top: -7px">
+      <span>Name</span>
+      <%= f.text_field :name, placeholder: "Enter user name" %>
+    </label>
+    <br>
+    <label style="margin-top: -7px">
+      <span>Email</span>
+      <%= f.email_field :email, placeholder: "Enter user email"  %>
+    </label>
+    <br>
+     <label style="margin-top: -7px">
+      <span>Phone</span>
+      <%= f.number_field :mobile, placeholder: "Enter mobile number"  %>
+    </label>
+    <br>
+    <label style="margin-top: -5px">
+      <span>Password</span>
+      <%= f.password_field :password, placeholder: "8-20 characters"  %>   
+       </label>
+       <br>
+       <label style="margin-top: -5px">
+         <span>Confirmation Password</span>
+         <%= f.password_field :password_confirmation, placeholder: "Enter confirmation password" %>
+         </label>
+
+    <button type="submit" style="margin-left: 157px;margin-top: -1px" class="submit">Save Changes</button>
+    <button type="button"  style="margin-left: 157px;margin-top: -1px" class="submit"> <a href="/login">already a user?</a></button>
+
+  </div>
+
+
+
+
+<% end %> 
+
+

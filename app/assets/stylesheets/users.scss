@@ -1,0 +1,75 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,800italic,400,600,700,800);
+body{
+  background-color: #f5f5f5;
+  padding: 120px 0;
+  font-family: 'Open Sans', sans-serif;
+}
+img{
+  max-width:100%;
+}
+
+.mask-shadow{
+  z-index:-1 !important;
+  width:95%;
+  height:12px;
+  background:#000;
+  bottom:0;
+  left:0;
+  right:0;
+  margin:0 auto;
+  position:absolute;
+  border-radius:4px;
+  opacity:0;
+  transition: all 400ms ease-in;
+}
+.profile-card:hover{
+  box-shadow: 0px 30px 60px -5px rgba(55,55,71,0.3);
+  transform: translate3d(0,-5px,0);
+  .mask-shadow{
+    opacity:1;
+    box-shadow: 0px 30px 60px -5px rgba(55,55,71,0.3);
+    position:absolute;
+  }
+}
+.profile-card header{
+  display:block;
+  margin-bottom:10px;
+}
+.profile-card header a{
+  width:150px;
+  height:150px;
+  display:block;
+  border-radius:100%;
+  margin:-120px auto 0;
+  box-shadow: 0 0 0 5px #82b541;
+}
+.profile-card header a img{
+  border-radius: 50%;
+  width:150px;
+  height:150px;
+}
+
+
+
+.profile-card:hover header a, .profile-card header a:hover{
+  animation: bounceOut .4s linear; 
+  -webkit-animation: bounceOut .4s linear;
+}
+.profile-card header h1{
+  font-size:20px;
+  color:#444;
+  text-transform:uppercase;
+  margin-bottom:5px;
+}
+.profile-card header h2{
+  font-size:14px;
+  color:#acacac;
+  text-transform:uppercase;
+  margin:0;
+}
+.profile-content { 
+  width: 95%;
+  height: auto;
+  margin-left: 27px;
+
+}

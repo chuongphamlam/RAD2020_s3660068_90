@@ -1,0 +1,63 @@
+
+
+
+<% if current_user.cards.blank? %>
+
+<div id="setting-list">
+   <form class="edit_user" id="edit_user_8" enctype="multipart/form-data" action=/cards/ accept-charset="UTF-8" method="post">
+      <input name="utf8" type="hidden" value="✓">
+      <input type="hidden" name="_method" value="post">
+      <div class="input-group mb-3" style="margin-bottom: 25px;margin-top: 25px;">
+         <div class="input-group-addon"> <span class="input-sgroup-text">Type of card</span> </div>
+         <input class="form-control"
+         placeholder="Enter your full name" required="required" type="text" name="card[name]"
+         id="user_password"> </div>
+      <div class="input-group mb-3" style="margin-bottom: 25px;">
+         <div class="input-group-addon"> <span class="input-group-text">Card Number </span> </div>
+         <input class="form-control"
+         placeholder="Enter your card number" required="required" type="number"
+         name="card[number]" id="user_password_confirmation"> </div>
+        <div class="input-group mb-3" style="margin-bottom: 25px;">
+         <div class="input-group-addon"> <span class="input-group-text">Image </span> </div>
+         <input class="form-control"
+         placeholder="Enter your card number" required="required" type="file"
+         name="card[photo]" id="user_password_confirmation"> </div>
+      <div class="row">
+         <div class="form-group">
+            <div class="col-sm-2">
+               <input type="submit" name="commit" value="Confirm" class="btn btn-success"
+               data-disable-with="Confirm"> </div>
+         </div>
+      </div>
+   </form>
+</div>
+
+<% else %>
+
+
+
+<div id="setting-list">
+   <form class="edit_user" id="edit_user_8" enctype="multipart/form-data" action=/cards/ accept-charset="UTF-8" method="post">
+      <input name="utf8" type="hidden" value="✓">
+      <input type="hidden" name="_method" value="post">
+      <div class="input-group mb-3" style="margin-bottom: 25px;margin-top: 25px;">
+         <div class="input-group-addon"> <span class="input-sgroup-text">Type of card</span> </div>
+         <input class="form-control"
+         placeholder="Enter your full name" required="required"  disabled type="text" name="card[name]"
+         id="user_password" value=<%=current_user.cards.first.name %>  > </div>
+      <div class="input-group mb-3" style="margin-bottom: 25px;">
+         <div class="input-group-addon"> <span class="input-group-text">Card Number </span> </div>
+         <input class="form-control"
+         placeholder="Enter your card number" disabled value=<%=current_user.cards.first.number %> required="required" type="number"
+         name="card[number]" id="user_password_confirmation"> </div>
+        <div class="input-group mb-3" style="margin-bottom: 25px;">
+            <img src=<%=current_user.cards.first.photo %> />  
+        </div>
+
+   </form>
+</div>
+
+
+
+
+<% end %>

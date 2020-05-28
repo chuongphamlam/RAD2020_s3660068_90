@@ -1,0 +1,43 @@
+<h1>StaticPages#Update</h1>
+<div class="post-container">
+   <h5 class="post-title">Post</h5>
+
+    <form class="edit_user" id="edit_user_8" enctype="multipart/form-data" action=/static_pages/<%= @post.id %> accept-charset="UTF-8" method="post">
+    <input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch">
+        <input  type="hidden" name="post[id]" >
+    <input type="hidden" name="authenticity_token" value="He0x3uzGmuX4aqKawiqdUniX8uPsUXs67d+nSOPj/Nchxvb0ZsSSjnSc0kzuzARLgHPxz+V0br5DSBO3kPNsCQ==">
+      <div class="input-group mb-3" style="margin-bottom: 25px;">
+         <div class="input-group-addon"> <span class="input-group-text">Topic</span> </div>
+         <select class="form-control" name="post[forum_id]" id="forum_id">
+            <% @forums.each do |f| %>
+               <option <option value=<%=f.id %>>
+                  <%=f.name %>
+               </option>
+               <% end %>
+         </select>
+      </div>
+      <div class="input-group mb-3" style="margin-bottom: 25px;">
+         <div class="input-group-addon"> <span class="input-group-text">Title</span> </div>
+         <%=text_field 'post', 'title', class: 'form-control',placeholder: "Enter post title here",required: true, minlength: 20, maxlength: 30 %>
+            </p>
+      </div>
+      <div class="input-group mb-3" style="margin-bottom: 25px;">
+         <div class="input-group-addon"> <span class="input-group-text">Photo</span> </div>
+         <input class="form-control" type="file" name="post[photo]" id="photo"> </div>
+      <div class="input-group mb-3" style="margin-bottom: 25px;">
+         <div class="">
+            <%=text_area 'post', 'content',placeholder: "Enter post content here", cols: 200, rows: 9,required: true,minlength: 30 %>
+               </p>
+         </div>
+      </div>
+      <div class="row">
+         <div class="form-group">
+            <div class="col-sm-2" style="display: flex;">
+               <%=submit_tag "Update", class: 'btn btn-success', style: 'margin-right:10px' %>
+                  <%=link_to "Cancel", root_path, class: 'btn btn-light' %>
+            </div>
+         </div>
+         </form>
+      </div>
+
+

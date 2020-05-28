@@ -1,0 +1,297 @@
+/* line 1, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* line 7, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  body {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    background: #ededed;
+  }
+  
+  /* line 12, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  input, button {
+    border: none;
+    outline: none;
+    background: none;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  }
+  
+  /* line 35, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .tip {
+    font-size: 20px;
+    margin: 40px auto 50px;
+    text-align: center;
+  }
+  
+  /* line 41, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .cont {
+    overflow: hidden;
+    position: relative;
+    width: 900px;
+    height: 550px;
+    margin: 0 auto 100px;
+    background: #fff;
+  }
+  
+  /* line 50, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .form {
+    position: relative;
+    width: 640px;
+    height: 100%;
+    transition: transform 1.2s ease-in-out;
+    padding: 50px 30px 0;
+  }
+  
+  /* line 58, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .sub-cont {
+    overflow: hidden;
+    position: absolute;
+    left: 640px;
+    top: 0;
+    width: 900px;
+    height: 100%;
+    padding-left: 260px;
+    background: #fff;
+    transition: transform 1.2s ease-in-out;
+  }
+  /* line 30, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .cont.s--signup .sub-cont {
+    transform: translate3d(-640px, 0, 0);
+  }
+  
+  /* line 74, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  button {
+    display: block;
+    margin: 0 auto;
+    width: 260px;
+    height: 36px;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  
+  /* line 85, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .img {
+    overflow: hidden;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 260px;
+    height: 100%;
+    padding-top: 360px;
+  }
+  /* line 95, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .img:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 900px;
+    height: 100%;
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/sections-3.jpg");
+    background-size: cover;
+    transition: transform 1.2s ease-in-out;
+  }
+  /* line 107, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .img:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+  }
+  /* line 118, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .cont.s--signup .img:before {
+    transform: translate3d(640px, 0, 0);
+  }
+  /* line 123, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .img__text {
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+    color: #fff;
+    transition: transform 1.2s ease-in-out;
+  }
+  /* line 134, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .img__text h2 {
+    margin-bottom: 10px;
+    font-weight: normal;
+  }
+  /* line 139, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .img__text p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  /* line 30, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .cont.s--signup .img__text.m--up {
+    transform: translateX(520px);
+  }
+  /* line 151, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .img__text.m--in {
+    transform: translateX(-520px);
+  }
+  /* line 30, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .cont.s--signup .img__text.m--in {
+    transform: translateX(0);
+  }
+  /* line 160, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .img__btn {
+    overflow: hidden;
+    z-index: 2;
+    position: relative;
+    width: 100px;
+    height: 36px;
+    margin: 0 auto;
+    background: transparent;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  /* line 173, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .img__btn:after {
+    content: '';
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #fff;
+    border-radius: 30px;
+  }
+
+  /* line 185, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .img__btn span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: transform 1.2s;
+  }
+  /* line 196, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .img__btn span.m--in {
+    transform: translateY(-72px);
+  }
+  /* line 30, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .cont.s--signup .img__btn span.m--in {
+    transform: translateY(0);
+  }
+  /* line 30, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .cont.s--signup .img__btn span.m--up {
+    transform: translateY(72px);
+  }
+  
+  /* line 213, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  h2 {
+    width: 100%;
+    font-size: 26px;
+    text-align: center;
+  }
+  
+  /* line 219, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  label {
+    display: block;
+    width: 260px;
+    margin: 25px auto 0;
+    text-align: center;
+    margin-left: 154px;
+  }
+  /* line 226, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  label span {
+    font-size: 12px;
+    color: #cfcfcf;
+    text-transform: uppercase;
+  }
+  
+  /* line 233, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  input {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    padding-bottom: 5px;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    text-align: center;
+  }
+  
+  /* line 243, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .forgot-pass {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 12px;
+    color: #cfcfcf;
+  }
+  
+  /* line 250, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .submit {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    background: #d4af7a;
+    text-transform: uppercase;
+  }
+  
+  /* line 257, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .fb-btn {
+    border: 2px solid #d3dae9;
+    color: #8fa1c7;
+  }
+  /* line 261, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .fb-btn span {
+    font-weight: bold;
+    color: #455a81;
+  }
+  
+  /* line 267, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .sign-in {
+    transition-timing-function: ease-out;
+  }
+  /* line 30, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .cont.s--signup .sign-in {
+    transition-timing-function: ease-in-out;
+    transition-duration: 1.2s;
+    transform: translate3d(640px, 0, 0);
+  }
+  
+  /* line 277, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .sign-up {
+    transform: translate3d(-900px, 0, 0);
+  }
+  /* line 30, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .cont.s--signup .sign-up {
+    transform: translate3d(0, 0, 0);
+  }
+  
+  /* line 285, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .icon-link {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    width: 32px;
+  }
+  /* line 291, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .icon-link img {
+    width: 100%;
+    vertical-align: top;
+  }
+  /* line 296, /Users/twostep./Downloads/app/app/assets/stylesheets/sessions.scss */
+  .icon-link--twitter {
+    left: auto;
+    right: 5px;
+  }
+  

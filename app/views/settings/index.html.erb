@@ -1,0 +1,31 @@
+<div class="container-fluid" style="height: 80vh;">
+   <div class="row" style="height: 80vh;">
+      <div class="col-sm-3 sidenav">
+         <div class="row post-title"> <i class="glyphicon glyphicon-user" style="font-size: 25px; margin-right: 10px;"></i> <a href=users/<%=current_user.id %>>Personal</a> </div>
+         <div class="row post-title"> <i class="glyphicon glyphicon-send" style="font-size: 25px; margin-right: 10px;"></i> <a href="/comments?posts">My Posts</a> </div>
+         <div class="row post-title"> <i class="glyphicon glyphicon-comment" style="font-size: 25px; margin-right: 10px;"></i> <a href="/comments?my_comment">My Comments</a> </div>
+         <div class="row post-title"> <i class="glyphicon glyphicon-ok" style="font-size: 25px; margin-right: 10px;"></i> <a href="/comments?other_comment">Comments to me</a> </div>
+         <div class="row post-title"> <i class="glyphicon glyphicon-cog" style="font-size: 25px; margin-right: 10px;"></i> <a href="#about">Setting</a> </div>
+      </div>
+      <div class="col-sm-8 main-setting">
+         <div class="container-fluid" style="margin: 20px;">
+            <div class="container-fluid nav-cover">
+               <div class="main-nav"> <a href="/settings">Personal Info</a> <a href="/settings?avatar">Avatar</a> <a href="/settings?password">Password</a> <a href="/settings?verification">Verification</a> </div>
+            </div>
+            <div id="setting-list">
+               <div class="col-sm-12">
+                  <% if store_location.include?( "password") %>
+                     <%=render 'settings/paswd' %>
+                        <% elsif store_location.include?( "avatar") %>
+                           <%=render 'settings/photo' %>
+                           <% elsif store_location.include?( "verification") %>
+                             <%=render 'settings/verification' %>    
+                              <% else %>
+                                 <%=render 'settings/profile' %>
+                                    <% end %>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

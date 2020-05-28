@@ -1,0 +1,63 @@
+
+
+
+# development:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: rmit-db
+#   pool: 5
+#   username: rmit
+#   password: rmit
+
+# test:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: rmit-db
+#   pool: 5
+#   username: rmit
+#   password: rmit
+  
+
+
+
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: rmit-db
+#   pool: 5
+#   username: rmit
+#   password: rmit
+
+
+
+
+
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: d9v71d68b2o0ii
+  pool: 5
+  username: sbcfhikhfkgnmy
+  password: e1802e5d88738fccc7b71ad044c8b848907993e2ab1320a590b5d89dba3f94a2
+  port: 5432
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: d9v71d68b2o0ii
+  pool: 5
+  username: sbcfhikhfkgnmy
+  password: e1802e5d88738fccc7b71ad044c8b848907993e2ab1320a590b5d89dba3f94a2
+  port: 5432
+
+
+
+production:
+  adapter: postgresql 
+  encoding: unicode
+  database: d9v71d68b2o0ii
+  pool: 5
+  username: sbcfhikhfkgnmy
+  password: e1802e5d88738fccc7b71ad044c8b848907993e2ab1320a590b5d89dba3f94a2
+  port: 5432

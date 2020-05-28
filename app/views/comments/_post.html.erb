@@ -1,0 +1,43 @@
+<% if @posts.blank? %>
+  <h4 class="card-title">My Posts</h4>
+  <div class="well" style="margin-bottom:5px;">
+    <div class="media">
+      <div class="media-body">
+        <div class="col-sm-8">
+          <h3 style="margin-left: 190px;">This user do not has any post yet!</h>
+    </div>
+  </div>
+</div>
+</div>
+
+<%else %>
+<h4 class="card-title">My Posts</h4>
+<% @posts.each do |p| %>
+<div class="col-sm-12">
+      <div class="well" style="margin-bottom:5px;">
+        <div class="media">
+          <div class="media-body">
+            <h4 class="media-heading long-title"><a class="custom-highlight" href=static_pages/<%= p.id %> ><%= p.title %></a></h4>
+            
+            <ul class="list-inline list-unstyled">
+              <li>
+                <i class="glyphicon glyphicon-calendar"></i>
+                <%= p.created_at %>
+              </li>
+               |
+              <li>
+                <i class="glyphicon glyphicon-fire"></i>
+                <%= p.forum.name %>
+              </li>
+               |
+              <li>
+                <i class="glyphicon glyphicon-eye-open"></i>
+                <%= p.counter %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+</div>
+<%end%>
+<% end %>

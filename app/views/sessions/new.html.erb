@@ -1,0 +1,42 @@
+
+
+
+
+
+<% provide(:title, "Log in") %>
+<h1>Log In</h1>
+
+<div class="cont">
+
+  <div class="form sign-in" style="padding-top: 149px;">
+  <%= form_for(:session,url: login_path) do |f| %>
+
+    <label style="margin-top: -7px;margin-left: 294px;">
+      <span>Email</span>
+      <%= f.email_field :email , value: cookies[:user_email],:required => true %>
+    </label>
+    <br>
+    <label style="margin-top: -1px;margin-left: 294px;">
+      <span>Password</span>
+      <%= f.password_field :password ,value: cookies[:user_password], :required => true %>   
+       </label>
+    <label  style="margin-top: -5px;margin-left: 294px;" class="checkbox inline" for="session_remember_me">
+                    <input name="session[remember_me]" type="hidden" value="0"><input type="checkbox" value="1" name="session[remember_me]" id="session_remember_me">
+                    <span>Remember me on this computer</span>
+    </label>
+        <label  style="margin-top: -5px;margin-left: 294px;" class="checkbox inline" for="session_remember_me">
+                 <a  href="/password_resets" >Forget Password -></a>
+    </label>
+    <button type="submit" style="margin-left: 290px;margin-top: 3px" class="submit">Sign In</button>
+    <% end %>
+    <button type="button" style="margin-left: 290px" class="fb-btn"><a href="signup">Sign Up</a></button>
+  </div>
+
+  <div class="sub-cont">
+    
+  </div>
+
+
+  
+</div>
+
