@@ -17,4 +17,4 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 heroku link: https://ruby-rmit.herokuapp.com/
-github :https://github.com/chuongphamlam/RAD2020_s3660068.git
+github :https://github.com/chuongphamlam/RAD2020_s3660068_90
