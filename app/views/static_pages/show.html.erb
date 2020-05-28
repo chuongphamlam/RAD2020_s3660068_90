@@ -55,10 +55,12 @@
         <%=form_tag( '/comments') do %>
           <div class="input-group">
             <input class="form-control" name="comment[content]" placeholder="Add a comment" type="text" required /> <span class="input-group-addon">
-          <input type="hidden" name="comment[post_id]" value="<%=@post.id %>>
-          <button type="submit"><i class="glyphicon glyphicon-send"></i></button>
+          <input type="hidden" name="comment[post_id]" value=<%=@post.id %>>
+          <button style="hight:10px" type="submit"><i class="glyphicon glyphicon-send"></i></button>
         </span> </div>
           <% end %>
+
+
             <% @comments.each do |c| %>
               <ul class="comments-list">
                 <li class="comment">

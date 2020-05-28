@@ -13,7 +13,7 @@ class StaticPagesController < ApplicationController
     else
       if params[:select].nil?
       @posts = Post.where("lower(title) like ?", "%#{params['search'].downcase}%").or(Post.where("lower(content) like ?", "%#{params['search'].downcase}%"))
-      flash[:success] = "There are #{@posts.count < 0 ? @posts.count : "no" } matching records !!"
+      flash[:success] = "There are #{@posts.count > 0 ? @posts.count : "no" } matching records !!"
       else
         ids = params[:select].split(',')
         (ids.find_all { |e| ids.count(e) > 1 }).each {|item| ids.delete(item)}

@@ -10,19 +10,25 @@
 </div>
 </div>
 <%else %>
+
+<h4 class="card-title">My Comment</h4>
 <% @comments.each do |c| %>
-  <h4 class="card-title">My Comment</h4>
-  <div class="well" style="margin-bottom:5px;">
-    <div class="media">
-      <div class="media-body">
-        <div class="col-sm-8">
-          <h4 class="media-heading long-title"><a href=/static_pages/<%= c.post.id%> class="custom-highlight" >GO TO: </a><%= c.content %></h4>
-          
-        <div class="col-sm-2" style="float:right"> <i class="glyphicon glyphicon-calendar"></i>
-          <%=c .created_at %>
+<div class="col-sm-12">
+      <div class="well" style="margin-bottom:5px;">
+        <div class="media">
+          <div class="media-body">
+            <h4 class="media-heading long-title"><a class="custom-highlight" href=/static_pages/<%= c.post.id%>  >GO TO: <%= c.content %></a></h4>
+            
+            <ul class="list-inline list-unstyled">
+              <li>
+              <i class="glyphicon glyphicon-calendar"></i>
+                <%= c.created_at %>
+              </li>
+           
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+</div>
   <% end %>
 <% end %>
