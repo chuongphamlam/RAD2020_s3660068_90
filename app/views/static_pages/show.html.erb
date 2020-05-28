@@ -17,7 +17,7 @@
         <div class="row" style="padding: 0px 50px">
           <div class="col-sm-8">
             <h1><%=@post.title %> </h1>
-            <h4><%=@post.content %> </h4> </div>
+            <h4 style="max-width: 642px;"><%=@post.content %> </h4> </div>
           <div class="col-sm-4">
             <% if @post.photo.file.nil? %> <img src="/uploads/defaults/thumb-default.jpg" />
               <% else %> <img src=<%=@post.photo %> /></div>
